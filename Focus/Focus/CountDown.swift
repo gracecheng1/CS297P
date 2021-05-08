@@ -8,78 +8,104 @@
 import SwiftUI
 
 struct CountDown: View {
-    @State private var hourStr = ""
-    @State private var minStr = ""
-    @State private var secStr = ""
+    @State private var hourStr = "0"
+    @State private var minStr = "25"
+    @State private var secStr = "0"
     @State private var hour: Int = 0
     @State private var min: Int = 0
     @State private var sec: Int = 0
-    @State private var started: Bool = false
+    @State private var started: Bool = true
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
+        VStack (spacing: 0) {
             HStack {
                 Text("Hour")
+                    .font(.system(size: 25))
+                    .padding(20)
+                    .foregroundColor(Color.white)
+                Spacer()
                 Text("Minute")
+                    .padding(20)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 25))
+                Spacer()
                 Text("Second")
+                    .padding(20)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 25))
             }
-            .frame(minWidth: 0,
-                   maxWidth: .infinity,
-                   minHeight: 0,
-                   maxHeight: 100,
-                   alignment: .topLeading)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
+            .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
+            
             if (!started) {
                 HStack {
-                    TextField("hour", text: self.$hourStr)
+                    TextField("00", text: self.$hourStr)
                         .multilineTextAlignment(.trailing)
                         .padding(20)
                         .frame(width: 80, height: 50, alignment: .center)
-                        .background(Color.gray)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .cornerRadius(65.5)
                     Text(":")
-                    TextField("min", text: self.$minStr)
+                    TextField("25", text: self.$minStr)
                         .multilineTextAlignment(.center)
                         .padding(20)
-                        .frame(width: 80, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.gray)
+                        .frame(width: 80, height: 50, alignment: .center)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .cornerRadius(65.5)
                     Text(":")
-                    TextField("sec", text: self.$secStr)
+                    TextField("00", text: self.$secStr)
                         .multilineTextAlignment(.leading)
                         .padding(20)
-                        .frame(width: 80, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.gray)
+                        .frame(width: 80, height: 50, alignment: .center)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .cornerRadius(65.5)
                 }
             }
             else {
-                Text(hourStr + ":" + minStr + ":" + secStr)
-                    .padding(20)
-                    .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                HStack {
+                    Text(hourStr)
+                    Spacer()
+                    Text(":")
+                    Spacer()
+                    Text(minStr)
+                    Spacer()
+                    Text(":")
+                    Spacer()
+                    Text(secStr)
+                }
             }
+            
+            Spacer()
+            
+            Image("jerry")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            Spacer()
+            
             if (!started) {
                 Button(action: startCount) {
                     Text("Start")
+                        .font(.system(size: 30, weight: .heavy, design:. default))
                         .foregroundColor(.white)
                 }
-                .frame(width: 100, height: 40, alignment: .center)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
+                .frame(width: 150, height: 60, alignment: .center)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
                           .cornerRadius(65.5)
             }
             else {
                 Button(action: stopCount) {
                     Text("Stop")
+                        .font(.system(size: 30, weight: .heavy, design:. default))
                         .foregroundColor(.white)
                 }
-                .frame(width: 100, height: 40, alignment: .center)
+                .frame(width: 150, height: 60, alignment: .center)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
                           .cornerRadius(65.5)
             }
         }
-        .padding(.vertical, -200)
+        .padding(.vertical, -20)
         .onReceive(timer) { time in
             if (!started) {return}
             if self.sec > 0 {
