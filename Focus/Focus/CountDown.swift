@@ -21,22 +21,29 @@ struct CountDown: View {
     var body: some View {
         VStack (spacing: 0) {
             HStack {
+                Spacer()
                 Text("Hour")
-                    .font(.system(size: 25))
                     .padding(20)
                     .foregroundColor(Color.white)
+                    .font(.system(size: 25))
+                    .frame(width: UIScreen.main.bounds.size.width / 3)
                 Spacer()
                 Text("Minute")
                     .padding(20)
                     .foregroundColor(Color.white)
                     .font(.system(size: 25))
+                    .frame(width: UIScreen.main.bounds.size.width / 3)
                 Spacer()
                 Text("Second")
                     .padding(20)
                     .foregroundColor(Color.white)
                     .font(.system(size: 25))
+                    .frame(width: UIScreen.main.bounds.size.width / 3)
+                Spacer()
             }
             .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
+            
+            
             
             if (!started) {
                 HStack {
@@ -64,15 +71,26 @@ struct CountDown: View {
             }
             else {
                 HStack {
-                    Text(hourStr)
-                    Spacer()
-                    Text(":")
-                    Spacer()
-                    Text(minStr)
-                    Spacer()
-                    Text(":")
-                    Spacer()
-                    Text(secStr)
+                    Group {
+                        Spacer()
+                        Text(hourStr)
+                            .font(.system(size: 25))
+                        Spacer()
+                        Text(":")
+                            .font(.system(size: 25))
+                        Spacer()
+                        Text(minStr)
+                            .font(.system(size: 25))
+                    }
+                    Group {
+                        Spacer()
+                        Text(":")
+                            .font(.system(size: 25))
+                        Spacer()
+                        Text(secStr)
+                            .font(.system(size: 25))
+                        Spacer()
+                    }
                 }
             }
             
@@ -104,6 +122,8 @@ struct CountDown: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
                           .cornerRadius(65.5)
             }
+            
+            Spacer()
         }
         .padding(.vertical, -20)
         .onReceive(timer) { time in
