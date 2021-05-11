@@ -175,4 +175,4 @@ struct CountDown_Previews: PreviewProvider {
     static var previews: some View {
         CountDown()
     }
-}ß
+}
