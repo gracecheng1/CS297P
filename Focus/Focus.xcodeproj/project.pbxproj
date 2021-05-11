@@ -14,6 +14,7 @@
 		839BC360264654A20080C7F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC35F264654A20080C7F9 /* ContentView.swift */; };
 		839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC361264659180080C7F9 /* PopUpWindow.swift */; };
 		839BC3642649FF180080C7F9 /* iOSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC3632649FF180080C7F9 /* iOSUser.swift */; };
+		839BC366264A01CA0080C7F9 /* FocusRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC365264A01CA0080C7F9 /* FocusRound.swift */; };
 		83B5949E262E4DDA0046A830 /* FocusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B5949D262E4DDA0046A830 /* FocusApp.swift */; };
 		83B594A2262E4DDC0046A830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B594A1262E4DDC0046A830 /* Assets.xcassets */; };
 		83B594A5262E4DDC0046A830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B594A4262E4DDC0046A830 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		839BC35F264654A20080C7F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		839BC361264659180080C7F9 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		839BC3632649FF180080C7F9 /* iOSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSUser.swift; sourceTree = "<group>"; };
+		839BC365264A01CA0080C7F9 /* FocusRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusRound.swift; sourceTree = "<group>"; };
 		83B5949A262E4DDA0046A830 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B5949D262E4DDA0046A830 /* FocusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusApp.swift; sourceTree = "<group>"; };
 		83B594A1262E4DDC0046A830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				839BC3632649FF180080C7F9 /* iOSUser.swift */,
+				839BC365264A01CA0080C7F9 /* FocusRound.swift */,
 				83B5949C262E4DDA0046A830 /* Focus */,
 				83B594AE262E4DDD0046A830 /* FocusTests */,
 				83B594B9262E4DDD0046A830 /* FocusUITests */,
@@ -280,6 +283,7 @@
 				48D17CA626460DB6009C97B8 /* Signup.swift in Sources */,
 				83B5949E262E4DDA0046A830 /* FocusApp.swift in Sources */,
 				839BC3642649FF180080C7F9 /* iOSUser.swift in Sources */,
+				839BC366264A01CA0080C7F9 /* FocusRound.swift in Sources */,
 				839BC360264654A20080C7F9 /* ContentView.swift in Sources */,
 				8372F8342645E154009F2351 /* CountDown.swift in Sources */,
 				839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */,
