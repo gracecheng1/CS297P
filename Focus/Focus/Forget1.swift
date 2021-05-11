@@ -1,20 +1,20 @@
 //
-//  SwiftUIView.swift
+//  Forget1.swift
 //  Focus
 //
-//  Created by Ya Cheng on 5/7/21.
+//  Created by Ya Cheng on 5/10/21.
 //
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct Forget1: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct Forget1_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        Forget1()
     }
 }
