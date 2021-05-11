@@ -2,15 +2,14 @@
 //  ContentView.swift
 //  Focus
 //
-//  Created by Shiheng Wang on 4/19/21.
+//  Created by Ya Cheng on 5/10/21.
 //
+
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Login()
     }
 }
 
