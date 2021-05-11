@@ -86,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		839BC368264A049C0080C7F9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				839BC3632649FF180080C7F9 /* iOSUser.swift */,
+				839BC365264A01CA0080C7F9 /* FocusRound.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		83B59491262E4DDA0046A830 = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +120,7 @@
 			children = (
 				83B5949D262E4DDA0046A830 /* FocusApp.swift */,
 				8372F8332645E154009F2351 /* CountDown.swift */,
-				839BC365264A01CA0080C7F9 /* FocusRound.swift */,
-				839BC3632649FF180080C7F9 /* iOSUser.swift */,
+				839BC368264A049C0080C7F9 /* Classes */,
 				839BC361264659180080C7F9 /* PopUpWindow.swift */,
 				839BC35F264654A20080C7F9 /* ContentView.swift */,
 				48D17C98264602E5009C97B8 /* Login.swift */,
