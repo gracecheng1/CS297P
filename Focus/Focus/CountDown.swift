@@ -15,6 +15,9 @@ struct CountDown: View {
     @State private var sec: Int = 0
     @State private var started: Bool = false
     @State private var showPopUp: Bool = false
+    @State private var showChooseAnimal: Bool = false
+    @State private var curRound = FocusRound()
+    @State private var animal = "jerry"
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -28,59 +31,55 @@ struct CountDown: View {
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
+                        .font(.title)
                     Spacer()
                     Text("Minute")
                         .padding(20)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
+                        .font(.title)
                     Spacer()
                     Text("Second")
                         .padding(20)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
+                        .font(.title)
                     Spacer()
                 }
-                .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
                 
                 
                 
                 if (!started) {
                     HStack {
-                        TextField("00", text: self.$hourStr)
-                            .multilineTextAlignment(.trailing)
-                            .padding(20)
-                            .frame(width: 80, height: 50, alignment: .center)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .cornerRadius(65.5)
+                        Group {
+                            Spacer()
+                            TimerInputField(placeholder: "00", text: $hourStr)
+                            Spacer()
+                            Text(":")
+                        }
+                        Spacer()
+                        TimerInputField(placeholder: "00", text: $minStr)
+                        Spacer()
                         Text(":")
-                        TextField("25", text: self.$minStr)
-                            .multilineTextAlignment(.center)
-                            .padding(20)
-                            .frame(width: 80, height: 50, alignment: .center)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .cornerRadius(65.5)
-                        Text(":")
-                        TextField("00", text: self.$secStr)
-                            .multilineTextAlignment(.leading)
-                            .padding(20)
-                            .frame(width: 80, height: 50, alignment: .center)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .cornerRadius(65.5)
+                        Spacer()
+                        TimerInputField(placeholder: "00", text: $secStr)
+                        Spacer()
                     }
                 }
                 else {
                     HStack {
                         Group {
                             Spacer()
-                            Text(hourStr)
+                            LeftTimeField(time: $hourStr)
                                 .font(.system(size: 25))
                             Spacer()
                             Text(":")
                                 .font(.system(size: 25))
                             Spacer()
-                            Text(minStr)
+                            LeftTimeField(time: $minStr)
                                 .font(.system(size: 25))
                         }
                         Group {
@@ -88,7 +87,7 @@ struct CountDown: View {
                             Text(":")
                                 .font(.system(size: 25))
                             Spacer()
-                            Text(secStr)
+                            LeftTimeField(time: $secStr)
                                 .font(.system(size: 25))
                             Spacer()
                         }
@@ -97,31 +96,23 @@ struct CountDown: View {
                 
                 Spacer()
                 
-                Image("jerry")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                Button(action: toggleChooseAnimal) {
+                    Image(animal)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 
                 Spacer()
                 
                 if (!started) {
                     Button(action: startCount) {
-                        Text("Start")
-                            .font(.system(size: 30, weight: .heavy, design:. default))
-                            .foregroundColor(.white)
+                        FullwidthButton(text: "Start")
                     }
-                    .frame(width: 150, height: 60, alignment: .center)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
-                              .cornerRadius(65.5)
                 }
                 else {
                     Button(action: stopCount) {
-                        Text("Stop")
-                            .font(.system(size: 30, weight: .heavy, design:. default))
-                            .foregroundColor(.white)
+                        FullwidthButton(text: "Stop")
                     }
-                    .frame(width: 150, height: 60, alignment: .center)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(65.5)
                 }
                 
                 Spacer()
@@ -146,11 +137,18 @@ struct CountDown: View {
                     self.sec = 0
                     self.min = 0
                     self.hour = 0
+                    started = false
+                    curRound.finished()
+                    // Update database here
+                    
+                    // reset object for next round
+                    curRound.reset()
                 }
                 hourStr = String(hour)
                 minStr = String(min)
                 secStr = String(sec)
             }
+            ChooseAnimalView(show: $showChooseAnimal, animal: $animal)
             PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp)
             
         }
@@ -160,6 +158,9 @@ struct CountDown: View {
         started = true
         hour = Int(hourStr)!
         min = Int(minStr)!
+        sec = Int(secStr)!
+        curRound.setTime(time: min + hour * 60)
+        curRound.setAnimal(animal: animal)
     }
     
     func stopCount() {
@@ -167,6 +168,10 @@ struct CountDown: View {
         if hourStr != "0" || minStr != "0" || secStr != "0" {
             showPopUp.toggle()
         }
+    }
+    
+    func toggleChooseAnimal() {
+        showChooseAnimal = true
     }
 }
     

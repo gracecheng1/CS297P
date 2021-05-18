@@ -12,12 +12,26 @@ class FocusRound {
     var animal: String
     var finish: Bool = false
     
-    init(time: Int, animal: String) {
+    init() {
+        self.time = 0
+        self.animal = ""
+    }
+    
+    func setTime(time: Int) {
         self.time = time
+    }
+    
+    func setAnimal(animal: String) {
         self.animal = animal
     }
     
     func finished() {
         self.finish.toggle()
+    }
+    
+    func reset() {
+        self.time = 0
+        self.animal = ""
+        self.finish = false
     }
 }

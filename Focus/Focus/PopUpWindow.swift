@@ -10,7 +10,7 @@ struct PopUpWindow: View {
     var title: String
     var message: String
     var button1Text: String
-    var button2Text: String
+    var button2Text: String?
     @Binding var show: Bool
 
     var body: some View {
@@ -50,20 +50,23 @@ struct PopUpWindow: View {
                         .buttonStyle(PlainButtonStyle())
                         .cornerRadius(65.5)
                         
-                        Button(action: {
-                            // Dismiss the PopUp
-                            withAnimation(.linear(duration: 0.3)) {
-                                show = false
-                            }
-                        }, label: {
-                            Text(button2Text)
-                                .frame(width: 108, height: 40, alignment: .center)
-                                .foregroundColor(Color.white)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
-                                .font(Font.system(size: 23, weight: .semibold))
-                        })
-                        .buttonStyle(PlainButtonStyle())
-                        .cornerRadius(65.5)
+                        
+                        if button2Text != nil {
+                            Button(action: {
+                                // Dismiss the PopUp
+                                withAnimation(.linear(duration: 0.3)) {
+                                    show = false
+                                }
+                            }, label: {
+                                Text(button2Text!)
+                                    .frame(width: 108, height: 40, alignment: .center)
+                                    .foregroundColor(Color.white)
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
+                                    .font(Font.system(size: 23, weight: .semibold))
+                            })
+                            .buttonStyle(PlainButtonStyle())
+                            .cornerRadius(65.5)
+                        }
                     }
                 }
                 .frame(maxWidth: 300)
@@ -73,10 +76,3 @@ struct PopUpWindow: View {
         }
     }
 }
-
-//struct PopUpWindow_Previews: PreviewProvider {
-//    @State private var showPopUp: Bool = false
-//    static var previews: some View {
-//        
-//    }
-//}
