@@ -12,6 +12,8 @@ struct PopUpWindow: View {
     var button1Text: String
     var button2Text: String?
     @Binding var show: Bool
+    @Binding var button1Tapped: Bool
+    @Binding var button2Tapped: Bool
 
     var body: some View {
         ZStack {
@@ -38,6 +40,7 @@ struct PopUpWindow: View {
                         Button(action: {
                             // Dismiss the PopUp
                             withAnimation(.linear(duration: 0.3)) {
+                                button1Tapped = false
                                 show = false
                             }
                         }, label: {
@@ -55,6 +58,7 @@ struct PopUpWindow: View {
                             Button(action: {
                                 // Dismiss the PopUp
                                 withAnimation(.linear(duration: 0.3)) {
+                                    button2Tapped = false
                                     show = false
                                 }
                             }, label: {
