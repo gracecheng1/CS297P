@@ -18,6 +18,8 @@ struct CountDown: View {
     @State private var showChooseAnimal: Bool = false
     @State private var curRound = FocusRound()
     @State private var animal = "jerry"
+    @State private var b1Tap: Bool = false
+    @State private var b2Tap: Bool = false
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -124,7 +126,7 @@ struct CountDown: View {
                 
                 Spacer()
             }
-            .padding(.vertical, -20)
+            .padding(.top, -15)
             .onReceive(timer) { time in
                 if (!started) {return}
                 if self.sec > 0 {
@@ -156,7 +158,7 @@ struct CountDown: View {
                 secStr = String(sec)
             }
             ChooseAnimalView(show: $showChooseAnimal, animal: $animal)
-            PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp)
+            PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp, button1Tapped: $b1Tap, button2Tapped: $started)
             
         }
      }
@@ -171,10 +173,8 @@ struct CountDown: View {
     }
     
     func stopCount() {
-        started = false
-        if hourStr != "0" || minStr != "0" || secStr != "0" {
-            showPopUp.toggle()
-        }
+        showPopUp.toggle()
+        
     }
     
     func toggleChooseAnimal() {
