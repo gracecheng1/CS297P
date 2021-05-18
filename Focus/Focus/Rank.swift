@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Rank: View {
     var body: some View {
-        Text("Rank")
         HStack{
             Spacer()
             NavigationLink(destination: CountDown().navigationBarHidden(true)) {
