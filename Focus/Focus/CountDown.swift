@@ -125,6 +125,24 @@ struct CountDown: View {
                 }
                 
                 Spacer()
+                                HStack{
+                    Spacer()
+                        CurrentTab(current:"Study")
+                    
+                    Spacer()
+                    NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
+                        EmptyTab(current:"MyZoo")
+                    }
+                    Spacer()
+                    NavigationLink(destination: Rank().navigationBarHidden(true)) {
+                    EmptyTab(current:"Rank")
+                    }
+                    Spacer()
+                    NavigationLink(destination: History().navigationBarHidden(true)) {
+                    EmptyTab(current:"History")
+                    }
+                }
+
             }
             .padding(.top, -15)
             .onReceive(timer) { time in
