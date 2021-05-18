@@ -29,7 +29,7 @@ struct Signup_Done: View {
                 .fontWeight(.semibold)
                 .foregroundColor(Color(0x606060))
             
-            NavigationLink(destination: Login()) {
+            NavigationLink(destination: Login().navigationBarHidden(true)) {
                 FullwidthButton(text: "Login Now").navigationBarHidden(true)
            }
 
@@ -47,7 +47,7 @@ struct Signup_Done_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Signup_Done()
-            Signup_Done()
+          
         }
     }
 }

@@ -22,7 +22,7 @@ struct Login: View {
             .scaledToFill()
             //.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             //.padding(.bottom, 100.0)
-        VStack(alignment: .center, spacing: 10) {
+        VStack(alignment: .center, spacing: 20) {
             Image("login")
                 .resizable()
                 .frame(width: 200.0, height: 200.0)
@@ -64,8 +64,9 @@ struct Login: View {
 //            sessionSession.signIn(email: email, password: password)
 //                }) {FullwidthButton(text: "Login")
 //                }
-        NavigationLink(destination: CountDown()) {
-            FullwidthButton(text: "Login")
+        NavigationLink(destination: CountDown()//.navigationBarHidden(true)
+        ) {
+            FullwidthButton(text: "Login").navigationBarHidden(true)
        }
         HStack(){
         Text("Not a member yet?")
@@ -73,18 +74,18 @@ struct Login: View {
             .fontWeight(.medium)
             .foregroundColor(Color(0xB1B1B1))
         
-        NavigationLink(destination: Signup()) {
+        NavigationLink(destination: Signup().navigationBarHidden(true)) {
          Text("Sign up")
             .font(.footnote)
             .fontWeight(.medium)
             .foregroundColor(Color(0x7C7C7C))
             .underline()}
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
             
         }
         Spacer()
-      }
-        }
+      }.navigationBarBackButtonHidden(true)
+        }.navigationBarBackButtonHidden(true)
     }
     }
 

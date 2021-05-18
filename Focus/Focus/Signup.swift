@@ -75,8 +75,9 @@ struct Signup: View {
 //        NavigationLink(destination: Signup_Verify()) {
 //            FullwidthButton(text: "Next Step")
 //       }
-            NavigationLink(destination: Signup_Done()) {
+            NavigationLink(destination: Signup_Done().navigationBarHidden(true)) {
                 FullwidthButton(text: "Next Step").navigationBarHidden(true)
+                
            }
 
         HStack(){
@@ -85,7 +86,7 @@ struct Signup: View {
             .fontWeight(.medium)
             .foregroundColor(Color(0xB1B1B1))
         
-        NavigationLink(destination: Login()) {
+        NavigationLink(destination: Login().navigationBarHidden(true)) {
          Text("Login")
             .font(.footnote)
             .fontWeight(.medium)

@@ -1,4 +1,3 @@
-//
 //  ExitAlertPopUp.swift
 //  Focus
 //
