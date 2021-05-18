@@ -29,7 +29,7 @@ struct EmptyTab: View {
                 .font(.headline)
                 .fontWeight(.heavy)
                 .foregroundColor(.black)
-                .frame(width: 100, height: 50, alignment: .center)
+                .frame(width: 90, height: 50, alignment: .center)
                 .background(Color(0xF5F5F5))
                   .cornerRadius(65.5)
     }
