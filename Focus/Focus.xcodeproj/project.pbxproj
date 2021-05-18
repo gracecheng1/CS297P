@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D9818264A072C00A6EBA4 /* ContentView.swift */; };
+		4873A0D226539A24006A404E /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D126539A24006A404E /* BottomTab.swift */; };
+		4873A0DA26546637006A404E /* MyZoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D926546637006A404E /* MyZoo.swift */; };
+		4873A0DF26546657006A404E /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0DE26546657006A404E /* Rank.swift */; };
+		4873A0E4265466D0006A404E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0E3265466D0006A404E /* History.swift */; };
 		48D031CA264A2D0B00406FFA /* Forget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D031C9264A2D0B00406FFA /* Forget1.swift */; };
 		48D17C99264602E5009C97B8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D17C98264602E5009C97B8 /* Login.swift */; };
 		48D17CA626460DB6009C97B8 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D17CA526460DB6009C97B8 /* Signup.swift */; };
@@ -46,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		480D9818264A072C00A6EBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4873A0D126539A24006A404E /* BottomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
+		4873A0D926546637006A404E /* MyZoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyZoo.swift; sourceTree = "<group>"; };
+		4873A0DE26546657006A404E /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		4873A0E3265466D0006A404E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		48D031C9264A2D0B00406FFA /* Forget1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forget1.swift; sourceTree = "<group>"; };
 		48D17C98264602E5009C97B8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		48D17CA526460DB6009C97B8 /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
@@ -131,14 +139,18 @@
 				83B5949D262E4DDA0046A830 /* FocusApp.swift */,
 				48D17CCA264A02A6009C97B8 /* Signup_Done.swift */,
 				8372F8332645E154009F2351 /* CountDown.swift */,
+				4873A0D126539A24006A404E /* BottomTab.swift */,
 				835E5EFD26538539007F88CD /* TimerInputField.swift */,
 				839BC368264A049C0080C7F9 /* Classes */,
 				839BC361264659180080C7F9 /* PopUpWindow.swift */,
 				839BC35F264654A20080C7F9 /* ContentView.swift */,
 				48D17C98264602E5009C97B8 /* Login.swift */,
+				4873A0E3265466D0006A404E /* History.swift */,
 				48D031C9264A2D0B00406FFA /* Forget1.swift */,
 				48D17CA526460DB6009C97B8 /* Signup.swift */,
+				4873A0D926546637006A404E /* MyZoo.swift */,
 				83B594A1262E4DDC0046A830 /* Assets.xcassets */,
+				4873A0DE26546657006A404E /* Rank.swift */,
 				835E5EFF26538E70007F88CD /* ChooseAnimalView.swift */,
 				839BC369264A3CEE0080C7F9 /* Icon.swift */,
 				480D9818264A072C00A6EBA4 /* ContentView.swift */,
@@ -303,9 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4873A0E4265466D0006A404E /* History.swift in Sources */,
 				48D17CCB264A02A6009C97B8 /* Signup_Done.swift in Sources */,
 				48D17CA626460DB6009C97B8 /* Signup.swift in Sources */,
+				4873A0D226539A24006A404E /* BottomTab.swift in Sources */,
 				480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */,
+				4873A0DA26546637006A404E /* MyZoo.swift in Sources */,
 				83B5949E262E4DDA0046A830 /* FocusApp.swift in Sources */,
 				835E5EFE26538539007F88CD /* TimerInputField.swift in Sources */,
 				839BC3642649FF180080C7F9 /* iOSUser.swift in Sources */,
@@ -315,6 +330,7 @@
 				8372F8342645E154009F2351 /* CountDown.swift in Sources */,
 				839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */,
 				48D17C99264602E5009C97B8 /* Login.swift in Sources */,
+				4873A0DF26546657006A404E /* Rank.swift in Sources */,
 				48D031CA264A2D0B00406FFA /* Forget1.swift in Sources */,
 				835E5F0026538E70007F88CD /* ChooseAnimalView.swift in Sources */,
 			);
