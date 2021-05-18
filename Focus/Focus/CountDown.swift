@@ -15,6 +15,7 @@ struct CountDown: View {
     @State private var sec: Int = 0
     @State private var started: Bool = false
     @State private var showPopUp: Bool = false
+    @State private var curRound = FocusRound()
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -42,32 +43,40 @@ struct CountDown: View {
                         .frame(width: UIScreen.main.bounds.size.width / 3)
                     Spacer()
                 }
-                .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
+                .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
                 
                 
                 
                 if (!started) {
                     HStack {
-                        TextField("00", text: self.$hourStr)
-                            .multilineTextAlignment(.trailing)
-                            .padding(20)
-                            .frame(width: 80, height: 50, alignment: .center)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .cornerRadius(65.5)
-                        Text(":")
+                        Group {
+                            Spacer()
+                            TextField("00", text: self.$hourStr)
+                                .multilineTextAlignment(.trailing)
+                                .padding(20)
+                                .frame(width: 80, height: 50, alignment: .center)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .cornerRadius(65.5)
+                            Spacer()
+                            Text(":")
+                        }
+                        Spacer()
                         TextField("25", text: self.$minStr)
                             .multilineTextAlignment(.center)
                             .padding(20)
                             .frame(width: 80, height: 50, alignment: .center)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .cornerRadius(65.5)
+                        Spacer()
                         Text(":")
+                        Spacer()
                         TextField("00", text: self.$secStr)
                             .multilineTextAlignment(.leading)
                             .padding(20)
                             .frame(width: 80, height: 50, alignment: .center)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .cornerRadius(65.5)
+                        Spacer()
                     }
                 }
                 else {
@@ -105,23 +114,13 @@ struct CountDown: View {
                 
                 if (!started) {
                     Button(action: startCount) {
-                        Text("Start")
-                            .font(.system(size: 30, weight: .heavy, design:. default))
-                            .foregroundColor(.white)
+                        FullwidthButton(text: "Start")
                     }
-                    .frame(width: 150, height: 60, alignment: .center)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
-                              .cornerRadius(65.5)
                 }
                 else {
                     Button(action: stopCount) {
-                        Text("Stop")
-                            .font(.system(size: 30, weight: .heavy, design:. default))
-                            .foregroundColor(.white)
+                        FullwidthButton(text: "Stop")
                     }
-                    .frame(width: 150, height: 60, alignment: .center)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.yellow]), startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(65.5)
                 }
                 
                 Spacer()
@@ -146,6 +145,12 @@ struct CountDown: View {
                     self.sec = 0
                     self.min = 0
                     self.hour = 0
+                    started = false
+                    curRound.finished()
+                    // Update database here
+                    
+                    // reset object for next round
+                    curRound.reset()
                 }
                 hourStr = String(hour)
                 minStr = String(min)
@@ -160,6 +165,9 @@ struct CountDown: View {
         started = true
         hour = Int(hourStr)!
         min = Int(minStr)!
+        sec = Int(secStr)!
+        curRound.setTime(time: min + hour * 60)
+        curRound.setAnimal(animal: "jerry")
     }
     
     func stopCount() {
