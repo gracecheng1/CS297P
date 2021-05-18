@@ -96,7 +96,14 @@ struct CountDown: View {
                 
                 Spacer()
                 
-                Button(action: toggleChooseAnimal) {
+                if (!started) {
+                    Button(action: toggleChooseAnimal) {
+                        Image(animal)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+                else {
                     Image(animal)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
