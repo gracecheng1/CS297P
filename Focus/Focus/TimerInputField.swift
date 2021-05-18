@@ -25,6 +25,19 @@ struct TimerInputField: View {
     }
 }
 
+struct LeftTimeField: View {
+    @Binding var time: String
+    var body: some View {
+        ZStack {
+            Text(time)
+                .multilineTextAlignment(.center)
+        }
+        .frame(width: 100, height: 50, alignment: .center)
+        .background(Color(0xF5F5F5))
+        .cornerRadius(15)
+    }
+}
+
 //struct TimerInputField_Previews: PreviewProvider {
 //    @State var time = ""
 //    

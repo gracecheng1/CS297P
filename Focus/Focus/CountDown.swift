@@ -15,7 +15,9 @@ struct CountDown: View {
     @State private var sec: Int = 0
     @State private var started: Bool = false
     @State private var showPopUp: Bool = false
+    @State private var showChooseAnimal: Bool = false
     @State private var curRound = FocusRound()
+    @State private var animal = "jerry"
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -71,13 +73,13 @@ struct CountDown: View {
                     HStack {
                         Group {
                             Spacer()
-                            Text(hourStr)
+                            LeftTimeField(time: $hourStr)
                                 .font(.system(size: 25))
                             Spacer()
                             Text(":")
                                 .font(.system(size: 25))
                             Spacer()
-                            Text(minStr)
+                            LeftTimeField(time: $minStr)
                                 .font(.system(size: 25))
                         }
                         Group {
@@ -85,7 +87,7 @@ struct CountDown: View {
                             Text(":")
                                 .font(.system(size: 25))
                             Spacer()
-                            Text(secStr)
+                            LeftTimeField(time: $secStr)
                                 .font(.system(size: 25))
                             Spacer()
                         }
@@ -94,9 +96,11 @@ struct CountDown: View {
                 
                 Spacer()
                 
-                Image("jerry")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                Button(action: toggleChooseAnimal) {
+                    Image(animal)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 
                 Spacer()
                 
@@ -144,6 +148,7 @@ struct CountDown: View {
                 minStr = String(min)
                 secStr = String(sec)
             }
+            ChooseAnimalView(show: $showChooseAnimal, animal: $animal)
             PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp)
             
         }
@@ -155,7 +160,7 @@ struct CountDown: View {
         min = Int(minStr)!
         sec = Int(secStr)!
         curRound.setTime(time: min + hour * 60)
-        curRound.setAnimal(animal: "jerry")
+        curRound.setAnimal(animal: animal)
     }
     
     func stopCount() {
@@ -163,6 +168,10 @@ struct CountDown: View {
         if hourStr != "0" || minStr != "0" || secStr != "0" {
             showPopUp.toggle()
         }
+    }
+    
+    func toggleChooseAnimal() {
+        showChooseAnimal = true
     }
 }
     
