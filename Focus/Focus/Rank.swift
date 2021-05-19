@@ -9,22 +9,51 @@ import SwiftUI
 
 struct Rank: View {
     var body: some View {
-        HStack{
-            Spacer()
-            NavigationLink(destination: CountDown().navigationBarHidden(true)) {
-                EmptyTab(current:"Study")
+        VStack {
+            HStack {
+                Spacer()
+                Text("Rank")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                Spacer()
+                Text("Name")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                Spacer()
+                Text("Total")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                Spacer()
             }
-            Spacer()
-            NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
-                EmptyTab(current:"MyZoo")
+            .frame(width: UIScreen.main.bounds.width, height: 100, alignment: .center)
+            .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
+            List {
+                RankingRowView(rank: "1", usrName: "Grace", hStr: "01", mStr: "25", sStr: "00", isMe: false)
+                RankingRowView(rank: "2", usrName: "Sebastian", hStr: "00", mStr: "25", sStr: "00", isMe: true)
+                RankingRowView(rank: "3", usrName: "Frank", hStr: "00", mStr: "10", sStr: "00", isMe: false)
             }
-            Spacer()
-            CurrentTab(current:"Rank")
-            
-            Spacer()
-            NavigationLink(destination: History().navigationBarHidden(true)) {
-            EmptyTab(current:"History")
-            }        }
+            HStack {
+                Spacer()
+                NavigationLink(destination: CountDown().navigationBarHidden(true)) {
+                    EmptyTab(current:"Study")
+                }
+                Spacer()
+                NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
+                    EmptyTab(current:"MyZoo")
+                }
+                Spacer()
+                CurrentTab(current:"Rank")
+                
+                Spacer()
+                NavigationLink(destination: History().navigationBarHidden(true)) {
+                EmptyTab(current:"History")
+                }
+            }
+        }
+        .padding(.top, -15)
     }
 }
 
