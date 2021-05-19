@@ -17,19 +17,23 @@ struct RankingRowView: View {
     
     var body: some View {
         HStack {
-            Spacer()
-            StarView(isSet: isMe)
-            Text(rank)
-                .font(.headline)
-                .fontWeight(.bold)
+            HStack {
+                StarView(isSet: isMe)
+                Text(rank)
+                    .font(.headline)
+                    .fontWeight(.bold)
+            }
+            .frame(width: UIScreen.main.bounds.width / 3, height: 50)
             Spacer()
             Text(usrName)
                 .font(.headline)
                 .fontWeight(.bold)
+                .frame(width: UIScreen.main.bounds.width / 3, height: 50)
             Spacer()
             Text(hStr + ":" + mStr + ":" + sStr)
                 .font(.headline)
                 .fontWeight(.bold)
+                .frame(width: UIScreen.main.bounds.width / 3, height: 50)
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
@@ -44,6 +48,5 @@ struct RankingRowView_Previews: PreviewProvider {
             RankingRowView(rank: "2", usrName: "Sebastian", hStr: "00", mStr: "25", sStr: "00", isMe: true)
             RankingRowView(rank: "3", usrName: "Frank", hStr: "00", mStr: "10", sStr: "00", isMe: false)
         }
-        .previewLayout(.fixed(width: 300, height: 70))
     }
 }
