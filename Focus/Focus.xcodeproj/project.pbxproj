@@ -18,6 +18,8 @@
 		48D17CCB264A02A6009C97B8 /* Signup_Done.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D17CCA264A02A6009C97B8 /* Signup_Done.swift */; };
 		835E5EFE26538539007F88CD /* TimerInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5EFD26538539007F88CD /* TimerInputField.swift */; };
 		835E5F0026538E70007F88CD /* ChooseAnimalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5EFF26538E70007F88CD /* ChooseAnimalView.swift */; };
+		835E5F04265487E9007F88CD /* RankingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5F03265487E9007F88CD /* RankingRowView.swift */; };
+		835E5F0626548D49007F88CD /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5F0526548D49007F88CD /* StarView.swift */; };
 		8372F8342645E154009F2351 /* CountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F8332645E154009F2351 /* CountDown.swift */; };
 		839BC360264654A20080C7F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC35F264654A20080C7F9 /* ContentView.swift */; };
 		839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839BC361264659180080C7F9 /* PopUpWindow.swift */; };
@@ -60,6 +62,8 @@
 		48D17CCA264A02A6009C97B8 /* Signup_Done.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup_Done.swift; sourceTree = "<group>"; };
 		835E5EFD26538539007F88CD /* TimerInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInputField.swift; sourceTree = "<group>"; };
 		835E5EFF26538E70007F88CD /* ChooseAnimalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnimalView.swift; sourceTree = "<group>"; };
+		835E5F03265487E9007F88CD /* RankingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingRowView.swift; sourceTree = "<group>"; };
+		835E5F0526548D49007F88CD /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		8372F8332645E154009F2351 /* CountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDown.swift; sourceTree = "<group>"; };
 		839BC35F264654A20080C7F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		839BC361264659180080C7F9 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				4873A0D926546637006A404E /* MyZoo.swift */,
 				83B594A1262E4DDC0046A830 /* Assets.xcassets */,
 				4873A0DE26546657006A404E /* Rank.swift */,
+				835E5F03265487E9007F88CD /* RankingRowView.swift */,
+				835E5F0526548D49007F88CD /* StarView.swift */,
 				835E5EFF26538E70007F88CD /* ChooseAnimalView.swift */,
 				839BC369264A3CEE0080C7F9 /* Icon.swift */,
 				480D9818264A072C00A6EBA4 /* ContentView.swift */,
@@ -329,9 +335,11 @@
 				839BC360264654A20080C7F9 /* ContentView.swift in Sources */,
 				8372F8342645E154009F2351 /* CountDown.swift in Sources */,
 				839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */,
+				835E5F04265487E9007F88CD /* RankingRowView.swift in Sources */,
 				48D17C99264602E5009C97B8 /* Login.swift in Sources */,
 				4873A0DF26546657006A404E /* Rank.swift in Sources */,
 				48D031CA264A2D0B00406FFA /* Forget1.swift in Sources */,
+				835E5F0626548D49007F88CD /* StarView.swift in Sources */,
 				835E5F0026538E70007F88CD /* ChooseAnimalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

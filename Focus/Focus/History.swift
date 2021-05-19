@@ -24,6 +24,7 @@ struct History: View {
                        selection: $date,
                        displayedComponents: [.date])
                 .datePickerStyle(GraphicalDatePickerStyle())
+                .accentColor(Color(0xFD9767))
             Spacer()
             Text(focusTime)
             Spacer()
