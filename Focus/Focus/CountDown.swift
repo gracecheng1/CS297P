@@ -29,25 +29,25 @@ struct CountDown: View {
                 HStack {
                     Spacer()
                     Text("Hour")
+                        .fontWeight(.bold)
                         .padding(20)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
-                        .font(.title)
                     Spacer()
                     Text("Minute")
+                        .fontWeight(.bold)
                         .padding(20)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
-                        .font(.title)
                     Spacer()
                     Text("Second")
+                        .fontWeight(.bold)
                         .padding(20)
                         .foregroundColor(Color.white)
                         .font(.system(size: 15))
                         .frame(width: UIScreen.main.bounds.size.width / 3)
-                        .font(.title)
                     Spacer()
                 }
                 .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
@@ -125,24 +125,6 @@ struct CountDown: View {
                 }
                 
                 Spacer()
-                                HStack{
-                    Spacer()
-                        CurrentTab(current:"Study")
-                    
-                    Spacer()
-                    NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
-                        EmptyTab(current:"MyZoo")
-                    }
-                    Spacer()
-                    NavigationLink(destination: Rank().navigationBarHidden(true)) {
-                    EmptyTab(current:"Rank")
-                    }
-                    Spacer()
-                    NavigationLink(destination: History().navigationBarHidden(true)) {
-                    EmptyTab(current:"History")
-                    }
-                }
-
             }
             .padding(.top, -15)
             .onReceive(timer) { time in

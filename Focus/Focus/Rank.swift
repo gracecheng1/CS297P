@@ -37,23 +37,6 @@ struct Rank: View {
             }
             .padding(.leading, -20)
             .frame(width: UIScreen.main.bounds.width)
-            HStack {
-                Spacer()
-                NavigationLink(destination: CountDown().navigationBarHidden(true)) {
-                    EmptyTab(current:"Study")
-                }
-                Spacer()
-                NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
-                    EmptyTab(current:"MyZoo")
-                }
-                Spacer()
-                CurrentTab(current:"Rank")
-                
-                Spacer()
-                NavigationLink(destination: History().navigationBarHidden(true)) {
-                EmptyTab(current:"History")
-                }
-            }
         }
         .padding(.top, -15)
     }
