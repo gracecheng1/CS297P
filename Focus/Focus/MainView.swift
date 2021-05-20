@@ -20,6 +20,7 @@ struct MainView: View {
                 .tabItem { Label("History", systemImage: "calendar.badge.clock") }
         }
         .accentColor(Color(0xFD716A))
+        .animation(.linear)
     }
 }
 
