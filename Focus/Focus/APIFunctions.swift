@@ -4,6 +4,7 @@
 //
 //  Created by Frank chen on 5/18/21.
 //
+
 import Foundation
 import Alamofire
 
@@ -44,4 +45,21 @@ class APIFunctions{
         }
         
     }
+    
+    func updateUser(User:String, Password: String, id:String)
+    {
+        AF.request("http://192.168.80.241:8081/update", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password, "id":id]).responseJSON{
+            response in
+            print(response)
+        }
+    }
+    
+    func deleteUser(id:String){
+        AF.request("http://192.168.80.241:8081/delete", method:.post, encoding: URLEncoding.httpBody, headers:["id":id]).responseJSON{
+            response in
+            print(response)
+        }
+    }
+    
+    
 }

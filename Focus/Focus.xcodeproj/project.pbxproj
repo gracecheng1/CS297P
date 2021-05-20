@@ -155,6 +155,7 @@
 				8372F8332645E154009F2351 /* CountDown.swift */,
 				4873A0D126539A24006A404E /* BottomTab.swift */,
 				835E5EFD26538539007F88CD /* TimerInputField.swift */,
+				01453EA92654C05C00FD65A8 /* APIFunctions.swift */,
 				839BC368264A049C0080C7F9 /* Classes */,
 				839BC361264659180080C7F9 /* PopUpWindow.swift */,
 				839BC35F264654A20080C7F9 /* ContentView.swift */,
