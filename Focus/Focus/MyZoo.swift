@@ -25,24 +25,6 @@ struct MyZoo: View {
                 MyZooRowView(animal: "snoopy", num: 0)
                 MyZooRowView(animal: "tom", num: 0)
             }
-            
-            HStack{
-                Spacer()
-                NavigationLink(destination: CountDown().navigationBarHidden(true)) {
-                    EmptyTab(current:"Study")
-                }
-                Spacer()
-                    CurrentTab(current:"MyZoo")
-                
-                Spacer()
-                NavigationLink(destination: Rank().navigationBarHidden(true)) {
-                EmptyTab(current:"Rank")
-                }
-                Spacer()
-                NavigationLink(destination: History().navigationBarHidden(true)) {
-                EmptyTab(current:"History")
-                }
-            }
         }
         .padding(.top, -15)
     }

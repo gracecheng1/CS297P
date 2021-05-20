@@ -28,22 +28,6 @@ struct History: View {
             Spacer()
             Text(focusTime)
             Spacer()
-            HStack{
-                Spacer()
-                NavigationLink(destination: CountDown().navigationBarHidden(true)) {
-                    EmptyTab(current:"Study")
-                }
-                Spacer()
-                NavigationLink(destination: MyZoo().navigationBarHidden(true)) {
-                    EmptyTab(current:"MyZoo")
-                }
-                Spacer()
-                NavigationLink(destination: Rank().navigationBarHidden(true)) {
-                EmptyTab(current:"Rank")
-                }
-                Spacer()
-                CurrentTab(current:"History")
-            }
         }
         .padding(.top, -15)
     }
