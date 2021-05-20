@@ -19,7 +19,6 @@ struct CountDown: View {
     @State private var curRound = FocusRound()
     @State private var animal = "jerry"
     @State private var b1Tap: Bool = false
-    @State private var b2Tap: Bool = false
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -161,8 +160,14 @@ struct CountDown: View {
             PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp, button1Tapped: $b1Tap, button2Tapped: $started)
             
         }
-     }
-    
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { _ in
+            started = false
+            hourStr = "0"
+            minStr = "25"
+            secStr = "0"
+        })
+    }
+
     func startCount() {
         started = true
         hour = Int(hourStr)!
