@@ -75,11 +75,26 @@ struct Signup: View {
 //        NavigationLink(destination: Signup_Verify()) {
 //            FullwidthButton(text: "Next Step")
 //       }
-            NavigationLink(destination: Signup_Done().navigationBarHidden(true)) {
-                FullwidthButton(text: "Next Step").navigationBarHidden(true)
-                
-           }
-
+        if(self.id == "" || self.pw == "" || self.pw2 == "" || self.tel == "")
+        {
+            FullwidthButton(text: "Missing Info").navigationBarHidden(true)
+        }
+        else{
+            if(self.pw != pw2)
+            {
+                FullwidthButton(text: "Password Does not match").navigationBarHidden(true)
+            }
+            else
+            {
+                NavigationLink(destination: Signup_Done().navigationBarHidden(true))
+                {
+                    FullwidthButton(text: "Next Step").navigationBarHidden(true)
+                }.onAppear()
+                {
+                    APIFunctions.functions.addUser(User: self.id, Password: self.pw, Email: self.tel)
+                }
+            }
+        }
         HStack(){
         Text("Already have an account?")
             .font(.footnote)
@@ -108,3 +123,5 @@ struct Signup_Previews: PreviewProvider {
         Signup()
     }
 }
+
+

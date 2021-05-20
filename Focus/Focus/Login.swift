@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import Alamofire
+
+var current = current_user(User: "", _id: "", Password: "", Email: "NULL")
+
 struct Login: View {
     @State var id = ""
     @State var password = ""
@@ -65,9 +69,18 @@ struct Login: View {
 //                }) {FullwidthButton(text: "Login")
 //                }
         NavigationLink(destination: CountDown()//.navigationBarHidden(true)
-        ) {
-            FullwidthButton(text: "Login").navigationBarHidden(true)
-       }
+                ) {
+                    FullwidthButton(text: "Login").navigationBarHidden(true)
+                
+                }.simultaneousGesture(TapGesture().onEnded{
+                    while(current.Email == "NULL")
+                    {
+                        login_now(User: self.id, Password: self.password)
+                        print(current.Email)
+                        print("hello")
+                        Text("Password is wrong")
+                    }
+                })
         HStack(){
         Text("Not a member yet?")
             .font(.footnote)
@@ -93,4 +106,24 @@ struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Login()
     }
+}
+
+func login_now(User:String, Password: String) //-> current_user
+{
+    //var current = current_user(User: "", _id: "", Password: "", Email: "NULL")
+    
+    AF.request("http://192.168.80.241:8081/login", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password]).responseJSON{
+        response in
+        switch response.result
+        {
+        case.success(_):
+            let json = response.data
+            current = try! JSONDecoder().decode(current_user.self, from: json!);
+            print(current.Email)
+        case.failure(let error):
+            print(error)
+        }
+    }
+    //return current
+    
 }

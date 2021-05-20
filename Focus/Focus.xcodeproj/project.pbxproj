@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01453EA82654BFBC00FD65A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 01453EA72654BFBC00FD65A8 /* Alamofire */; };
+		01453EAA2654C05C00FD65A8 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01453EA92654C05C00FD65A8 /* APIFunctions.swift */; };
 		480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D9818264A072C00A6EBA4 /* ContentView.swift */; };
 		4873A0D226539A24006A404E /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D126539A24006A404E /* BottomTab.swift */; };
 		4873A0DA26546637006A404E /* MyZoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D926546637006A404E /* MyZoo.swift */; };
@@ -52,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01453EA92654C05C00FD65A8 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIFunctions.swift; path = ../../../../APIFunctions.swift; sourceTree = "<group>"; };
 		480D9818264A072C00A6EBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4873A0D126539A24006A404E /* BottomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
 		4873A0D926546637006A404E /* MyZoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyZoo.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01453EA82654BFBC00FD65A8 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +169,7 @@
 				480D9818264A072C00A6EBA4 /* ContentView.swift */,
 				83B594A6262E4DDC0046A830 /* Info.plist */,
 				83B594A3262E4DDC0046A830 /* Preview Content */,
+				01453EA92654C05C00FD65A8 /* APIFunctions.swift */,
 			);
 			path = Focus;
 			sourceTree = "<group>";
@@ -211,6 +216,9 @@
 			dependencies = (
 			);
 			name = Focus;
+			packageProductDependencies = (
+				01453EA72654BFBC00FD65A8 /* Alamofire */,
+			);
 			productName = Focus;
 			productReference = 83B5949A262E4DDA0046A830 /* Focus.app */;
 			productType = "com.apple.product-type.application";
@@ -282,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 83B59491262E4DDA0046A830;
+			packageReferences = (
+				01453EA62654BFBC00FD65A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 83B5949B262E4DDA0046A830 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,6 +347,7 @@
 				839BC366264A01CA0080C7F9 /* FocusRound.swift in Sources */,
 				839BC36A264A3CEE0080C7F9 /* Icon.swift in Sources */,
 				839BC360264654A20080C7F9 /* ContentView.swift in Sources */,
+				01453EAA2654C05C00FD65A8 /* APIFunctions.swift in Sources */,
 				835E5F082654B98A007F88CD /* MyZooRowView.swift in Sources */,
 				8372F8342645E154009F2351 /* CountDown.swift in Sources */,
 				839BC362264659180080C7F9 /* PopUpWindow.swift in Sources */,
@@ -658,6 +670,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		01453EA62654BFBC00FD65A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01453EA72654BFBC00FD65A8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01453EA62654BFBC00FD65A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83B59492262E4DDA0046A830 /* Project object */;
 }
