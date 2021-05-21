@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyZoo: View {
+    @EnvironmentObject var current: current_user
     
     var body: some View {
         VStack {
@@ -25,14 +26,13 @@ struct MyZoo: View {
                 MyZooRowView(animal: "pikachu", num: current.Zoo.pikachu)
                 MyZooRowView(animal: "snoopy", num: current.Zoo.snoopy)
                 MyZooRowView(animal: "tom", num: current.Zoo.tom)
-            }
-        }
+            }        }
         .padding(.top, -15)
     }
 }
 
-struct MyZoo_Previews: PreviewProvider {
-    static var previews: some View {
-        MyZoo()
-    }
-}
+//struct MyZoo_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyZoo()
+//    }
+//}

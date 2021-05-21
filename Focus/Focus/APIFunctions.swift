@@ -18,13 +18,30 @@ struct animals: Decodable{
     var tom: Int
 }
 
-struct current_user: Decodable{
-    var User: String
-    var _id: String
-    var Password: String
-    var Email: String
-    var Total_time: Int
-    var Zoo: animals
+class current_user: Decodable, ObservableObject{
+    var User: String = ""
+    var _id: String = ""
+    var Password: String = ""
+    var Email: String = ""
+    var Total_time: Int = 0
+    @Published var Zoo: animals = animals(jerry: 0, kitty: 0, panda: 0, pikachu:0, snoopy:0, tom:0)
+    
+    enum  CodingKeys: CodingKey {
+        case User, _id, Password, Email, Total_time, Zoo
+    }
+    
+    init() { }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        User = try container.decode(String.self, forKey: .User)
+        _id = try container.decode(String.self, forKey: ._id)
+        Password = try container.decode(String.self, forKey: .Password)
+        Email = try container.decode(String.self, forKey: .Email)
+        Total_time = try container.decode(Int.self, forKey: .Total_time)
+        Zoo = try container.decode(animals.self, forKey: .Zoo)
+    }
     
     //init(json: [String: Any]){
       //  User = json["User"] as? String ?? "-1"

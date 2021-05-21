@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Rank: View {
+    @EnvironmentObject var current: current_user
+    
     var body: some View {
         VStack {
             HStack {
@@ -42,8 +44,8 @@ struct Rank: View {
     }
 }
 
-struct Rank_Previews: PreviewProvider {
-    static var previews: some View {
-        Rank()
-    }
-}
+//struct Rank_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Rank()
+//    }
+//}

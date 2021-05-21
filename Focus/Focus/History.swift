@@ -10,6 +10,7 @@ import SwiftUI
 struct History: View {
     @State private var date = Date()
     @State private var focusTime = "No study at this date!"
+    @EnvironmentObject var current: current_user
     
     var body: some View {
         VStack {
@@ -33,8 +34,8 @@ struct History: View {
     }
 }
 
-struct History_Previews: PreviewProvider {
-    static var previews: some View {
-        History()
-    }
-}
+//struct History_Previews: PreviewProvider {
+//    static var previews: some View {
+//        History()
+//    }
+//}

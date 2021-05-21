@@ -20,6 +20,7 @@ struct CountDown: View {
     @State private var curRound = FocusRound()
     @State private var animal = "jerry"
     @State private var b1Tap: Bool = false
+    @EnvironmentObject var current: current_user
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -235,8 +236,8 @@ struct CountDown: View {
 }
     
 
-struct CountDown_Previews: PreviewProvider {
-    static var previews: some View {
-        CountDown()
-    }
-}
+//struct CountDown_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CountDown()
+//    }
+//}
