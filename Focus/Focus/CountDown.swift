@@ -7,9 +7,9 @@
 import SwiftUI
 
 struct CountDown: View {
-    @State private var hourStr = "0"
+    @State private var hourStr = "00"
     @State private var minStr = "25"
-    @State private var secStr = "0"
+    @State private var secStr = "00"
     @State private var hour: Int = 0
     @State private var min: Int = 0
     @State private var sec: Int = 0
@@ -162,9 +162,7 @@ struct CountDown: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { _ in
             started = false
-            hourStr = "0"
-            minStr = "25"
-            secStr = "0"
+            reset()
         })
     }
 
@@ -179,11 +177,16 @@ struct CountDown: View {
     
     func stopCount() {
         showPopUp.toggle()
-        
     }
     
     func toggleChooseAnimal() {
         showChooseAnimal = true
+    }
+    
+    func reset() {
+        hourStr = "00"
+        minStr = "25"
+        secStr = "00"
     }
 }
     
