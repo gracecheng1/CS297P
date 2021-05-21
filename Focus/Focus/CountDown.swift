@@ -149,7 +149,40 @@ struct CountDown: View {
                     started = false
                     curRound.finished()
                     // Update database here
+                    current.Total_time += curRound.time
+                    if curRound.time >= 25
+                    {
+                        if curRound.animal == "jerry"
+                        {current.Zoo.jerry += 1}
+                        else if curRound.animal == "kitty"
+                        {current.Zoo.kitty += 1}
+                        else if curRound.animal == "panda"
+                        {current.Zoo.panda += 1}
+                        else if curRound.animal == "pikachu"
+                        {current.Zoo.pikachu += 1}
+                        else if curRound.animal == "snoopy"
+                        {current.Zoo.snoopy += 1}
+                        else if curRound.animal == "tom"
+                        {current.Zoo.tom += 1}
+                    }
                     
+                    let updated_dict = [
+                        "jerry": current.Zoo.jerry,
+                        "kitty": current.Zoo.kitty,
+                        "panda": current.Zoo.panda,
+                        "pikachu": current.Zoo.pikachu,
+                        "snoopy": current.Zoo.snoopy,
+                        "tom": current.Zoo.tom
+                    ]
+                    do {
+                  
+                        let jsonData = try JSONSerialization.data(withJSONObject: updated_dict, options: [])
+                        let jsonString = String(data: jsonData, encoding: .utf8)
+                        APIFunctions.functions.updateUser(total_time: String(current.Total_time), id: current._id, zoo: jsonString!)
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
                     // reset object for next round
                     curRound.reset()
                 }

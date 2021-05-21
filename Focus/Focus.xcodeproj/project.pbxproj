@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01453EA82654BFBC00FD65A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 01453EA72654BFBC00FD65A8 /* Alamofire */; };
+		01453EAD2657996B00FD65A8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 01453EAC2657996B00FD65A8 /* SwiftyJSON */; };
 		480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D9818264A072C00A6EBA4 /* ContentView.swift */; };
 		4873A0D226539A24006A404E /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D126539A24006A404E /* BottomTab.swift */; };
 		4873A0DA26546637006A404E /* MyZoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D926546637006A404E /* MyZoo.swift */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01453EAD2657996B00FD65A8 /* SwiftyJSON in Frameworks */,
 				01453EA82654BFBC00FD65A8 /* Alamofire in Frameworks */,
 				83E1959926570CD600C88A67 /* AlamofireNetworkActivityIndicator in Frameworks */,
 			);
@@ -221,6 +223,7 @@
 			packageProductDependencies = (
 				01453EA72654BFBC00FD65A8 /* Alamofire */,
 				83E1959826570CD600C88A67 /* AlamofireNetworkActivityIndicator */,
+				01453EAC2657996B00FD65A8 /* SwiftyJSON */,
 			);
 			productName = Focus;
 			productReference = 83B5949A262E4DDA0046A830 /* Focus.app */;
@@ -296,6 +299,7 @@
 			packageReferences = (
 				01453EA62654BFBC00FD65A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				83E1959726570CD600C88A67 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityIndicator" */,
+				01453EAB2657996B00FD65A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 83B5949B262E4DDA0046A830 /* Products */;
 			projectDirPath = "";
@@ -684,6 +688,14 @@
 				minimumVersion = 5.4.3;
 			};
 		};
+		01453EAB2657996B00FD65A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		83E1959726570CD600C88A67 /* XCRemoteSwiftPackageReference "AlamofireNetworkActivityIndicator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireNetworkActivityIndicator";
@@ -699,6 +711,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 01453EA62654BFBC00FD65A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		01453EAC2657996B00FD65A8 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01453EAB2657996B00FD65A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		83E1959826570CD600C88A67 /* AlamofireNetworkActivityIndicator */ = {
 			isa = XCSwiftPackageProductDependency;

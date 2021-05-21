@@ -7,12 +7,33 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+
+struct animals: Decodable{
+    var jerry : Int
+    var kitty : Int
+    var panda: Int
+    var pikachu: Int
+    var snoopy: Int
+    var tom: Int
+}
 
 struct current_user: Decodable{
     var User: String
     var _id: String
     var Password: String
     var Email: String
+    var Total_time: Int
+    var Zoo: animals
+    
+    //init(json: [String: Any]){
+      //  User = json["User"] as? String ?? "-1"
+        //_id = json["_id"] as? String ?? "-1"
+        //Password = json["Password"] as? String ?? "-1"
+        //Email = json["Email"] as? String ?? "-1"
+        //Total_time = json["Total_time"] as? Int ?? 0
+        //zoo = json["zoo"] as? JSON ?? []
+    //}
 }
 
 class APIFunctions{
@@ -28,27 +49,9 @@ class APIFunctions{
         
     }
     
-    func login(User:String, Password: String)
+    func updateUser(total_time: String, id:String, zoo:String)
     {
-        AF.request("http://192.168.80.241:8081/login", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password]).responseJSON{
-            response in
-            switch response.result
-            {
-            case.success(_):
-                let json = response.data
-                let current : current_user = try! JSONDecoder().decode(current_user.self, from: json!);
-                let data = String(data: response.data!, encoding: .utf8)
-
-            case.failure(let error):
-                print(error)
-            }
-        }
-        
-    }
-    
-    func updateUser(User:String, Password: String, id:String)
-    {
-        AF.request("http://192.168.80.241:8081/update", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password, "id":id]).responseJSON{
+        AF.request("http://192.168.80.241:8081/update", method: .post,encoding: URLEncoding.httpBody, headers: ["total_time": total_time, "id":id, "zoo": zoo]).responseJSON{
             response in
             print(response)
         }

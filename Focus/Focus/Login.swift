@@ -8,7 +8,8 @@
 import SwiftUI
 import Alamofire
 
-var current = current_user(User: "", _id: "", Password: "", Email: "NULL")
+var current = current_user(User: "", _id: "", Password: "", Email: "NULL", Total_time: 0, Zoo: animals(jerry: 0, kitty: 0, panda: 0, pikachu:0, snoopy:0, tom:0))
+
 struct Login: View {
     @State var id = ""
     @State var password = ""
@@ -46,7 +47,6 @@ struct Login: View {
                 FullwidthButton(text: "Login")
                 .onTapGesture {
                     login_now(User: self.id, Password: self.password, completion: {
-                        print(current.Email)
                         if current.Email != "NULL"{
                             isLoginValid = true
                         }
@@ -89,14 +89,13 @@ struct Login_Previews: PreviewProvider {
 
 func login_now(User:String, Password: String, completion: @escaping () -> Void)
 {
-    //var current = current_user(User: "", _id: "", Password: "", Email: "NULL")
     AF.request("http://192.168.80.241:8081/login", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password]).responseJSON{
         response in
         switch response.result
         {
         case.success(_):
-            let json = response.data
-            current = try! JSONDecoder().decode(current_user.self, from: json!);
+            guard let json = response.data else {return}
+            current = try! JSONDecoder().decode(current_user.self, from: json)
             completion()
         case.failure(let error):
             print("error:",error)
