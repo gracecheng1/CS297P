@@ -9,18 +9,20 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
+        VStack{
         TabView {
-            CountDown()
+            CountDown().navigationBarHidden(true)
                 .tabItem { Label("Study", systemImage: "clock") }
-            MyZoo()
-                .tabItem { Label("Zoo", systemImage: "hare") }
-            Rank()
+            MyZoo().navigationBarHidden(true)
+                .tabItem { Label("Zoo", systemImage: "hare")}
+            Rank().navigationBarHidden(true)
                 .tabItem { Label("Scoreboard", systemImage: "list.number") }
-            History()
+            History().navigationBarHidden(true)
                 .tabItem { Label("History", systemImage: "calendar.badge.clock") }
         }
         .accentColor(Color(0xFD716A))
         .animation(.linear)
+        }
     }
 }
 
