@@ -27,13 +27,10 @@ struct Login: View {
             .font(.largeTitle)
             .fontWeight(.heavy)
             .scaledToFill()
-            //.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            //.padding(.bottom, 100.0)
         VStack(alignment: .center, spacing: 20) {
             Image("login")
                 .resizable()
                 .frame(width: 200.0, height: 200.0)
-                //.aspectRatio(contentMode: .fit)
  
             ColorTextField(image:"login-id",
                     placeholder:"User ID",
