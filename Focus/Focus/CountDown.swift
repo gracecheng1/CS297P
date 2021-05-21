@@ -53,7 +53,7 @@ struct CountDown: View {
                 
                 
                 
-                if (!started) {
+                if !started {
                     HStack {
                         Group {
                             Spacer()
@@ -62,7 +62,7 @@ struct CountDown: View {
                             Text(":")
                         }
                         Spacer()
-                        TimerInputField(placeholder: "00", text: $minStr)
+                        TimerInputField(placeholder: "25", text: $minStr)
                         Spacer()
                         Text(":")
                         Spacer()

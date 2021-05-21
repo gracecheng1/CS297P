@@ -15,7 +15,7 @@ struct TimerInputField: View {
     
     var body: some View {
         ZStack {
-            if text.isEmpty { Text("00").foregroundColor(Color(0x979797))}
+            if text.isEmpty { Text(placeholder).foregroundColor(Color(0x979797))}
             TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)
                 .multilineTextAlignment(.center)
         }

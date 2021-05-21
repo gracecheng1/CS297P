@@ -21,24 +21,22 @@ struct Login: View {
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .scaledToFill()
-                VStack(alignment: .center, spacing: 20) {
-                    Image("login")
-                        .resizable()
-                        .frame(width: 200.0, height: 200.0)
+            VStack(alignment: .center, spacing: 20) {
+                Image("login")
+                    .resizable()
+                    .frame(width: 200.0, height: 200.0)
 
-                    ColorTextField(image:"login-id",
-                            placeholder:"User ID",
-                            text: $id
-                        )
-                    HStack(){
-                        Image("login-pw")
+                ColorTextField(image:"login-id",
+                        placeholder:"User ID",
+                        text: $id
+                    )
+                HStack(){
+                    Image("login-pw")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 20)
-                            ColorSecureField(
-                                    placeholder: Text("Password").foregroundColor(Color(0x979797)),
-                                    text: self.$password
-                                ).padding(.all, 20)
+                    ColorSecureField(placeholder: Text("Password").foregroundColor(Color(0x979797)), text: self.$password)
+                        .padding(.all, 20)
                     }.padding(.leading, 30.0).background(Color(0xF5F5F5))
                     .cornerRadius(15)
                 }.padding(.horizontal, 35.0)
