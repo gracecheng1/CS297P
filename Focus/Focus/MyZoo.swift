@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyZoo: View {
+    
     var body: some View {
         VStack {
             Text("MyZoo")
@@ -18,12 +19,12 @@ struct MyZoo: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
             
             List {
-                MyZooRowView(animal: "jerry", num: 0)
-                MyZooRowView(animal: "kitty", num: 0)
-                MyZooRowView(animal: "panda", num: 0)
-                MyZooRowView(animal: "pikachu", num: 0)
-                MyZooRowView(animal: "snoopy", num: 0)
-                MyZooRowView(animal: "tom", num: 0)
+                MyZooRowView(animal: "jerry", num: current.Zoo.jerry)
+                MyZooRowView(animal: "kitty", num: current.Zoo.kitty)
+                MyZooRowView(animal: "panda", num: current.Zoo.panda)
+                MyZooRowView(animal: "pikachu", num: current.Zoo.pikachu)
+                MyZooRowView(animal: "snoopy", num: current.Zoo.snoopy)
+                MyZooRowView(animal: "tom", num: current.Zoo.tom)
             }
         }
         .padding(.top, -15)
