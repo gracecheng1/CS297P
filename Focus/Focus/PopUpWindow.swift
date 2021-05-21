@@ -14,6 +14,7 @@ struct PopUpWindow: View {
     @Binding var show: Bool
     @Binding var button1Tapped: Bool
     @Binding var button2Tapped: Bool
+    var b2Action: ()->()
 
     var body: some View {
         ZStack {
@@ -59,6 +60,7 @@ struct PopUpWindow: View {
                                 // Dismiss the PopUp
                                 withAnimation(.linear(duration: 0.3)) {
                                     button2Tapped = false
+                                    b2Action()
                                     show = false
                                 }
                             }, label: {

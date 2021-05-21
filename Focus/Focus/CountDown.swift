@@ -7,13 +7,14 @@
 import SwiftUI
 
 struct CountDown: View {
-    @State private var hourStr = "00"
-    @State private var minStr = "25"
-    @State private var secStr = "00"
+    @State private var hourStr = ""
+    @State private var minStr = ""
+    @State private var secStr = ""
     @State private var hour: Int = 0
     @State private var min: Int = 0
     @State private var sec: Int = 0
     @State private var started: Bool = false
+    @State private var needReset: Bool = false
     @State private var showPopUp: Bool = false
     @State private var showChooseAnimal: Bool = false
     @State private var curRound = FocusRound()
@@ -157,8 +158,7 @@ struct CountDown: View {
                 secStr = String(sec)
             }
             ChooseAnimalView(show: $showChooseAnimal, animal: $animal)
-            PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp, button1Tapped: $b1Tap, button2Tapped: $started)
-            
+            PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp, button1Tapped: $b1Tap, button2Tapped: $needReset, b2Action: reset)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { _ in
             started = false
@@ -167,6 +167,15 @@ struct CountDown: View {
     }
 
     func startCount() {
+        if hourStr.isEmpty {
+            hourStr = "00"
+        }
+        if minStr.isEmpty {
+            minStr = "25"
+        }
+        if secStr.isEmpty {
+            secStr = "00"
+        }
         started = true
         hour = Int(hourStr)!
         min = Int(minStr)!
@@ -184,9 +193,11 @@ struct CountDown: View {
     }
     
     func reset() {
-        hourStr = "00"
-        minStr = "25"
-        secStr = "00"
+        started = false
+        needReset = true
+        hourStr = ""
+        minStr = ""
+        secStr = ""
     }
 }
     
