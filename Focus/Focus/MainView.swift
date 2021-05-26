@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var current: current_user
-    
+    var rank = [rankModel]()
+
     var body: some View {
         VStack{
         TabView {
@@ -17,7 +18,7 @@ struct MainView: View {
                 .tabItem { Label("Study", systemImage: "clock") }
             MyZoo().environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("Zoo", systemImage: "hare")}
-            Rank().environmentObject(current).navigationBarHidden(true)
+            Rank(rank: rank).environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("Scoreboard", systemImage: "list.number") }
             History().environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("History", systemImage: "calendar.badge.clock") }

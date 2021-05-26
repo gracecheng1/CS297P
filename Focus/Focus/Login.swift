@@ -8,7 +8,7 @@
 import SwiftUI
 import Alamofire
 
-//var current = current_user(User: "", _id: "", Password: "", Email: "NULL", Total_time: 0, Zoo: animals(jerry: 0, kitty: 0, panda: 0, pikachu:0, snoopy:0, tom:0))
+
 
 struct Login: View {
     @State var id = ""
@@ -16,6 +16,8 @@ struct Login: View {
     @State private var isLoginValid: Bool = false
     @State private var shouldShowLoginAlert: Bool = false
     @State var current = current_user()
+    @State var all_user = [current_user]()
+    @State var rank = [rankModel]()
     
     var body: some View {
         NavigationView {
@@ -45,10 +47,15 @@ struct Login: View {
                 }.padding(.horizontal, 35.0)
                 Spacer()
 
-                NavigationLink(destination: MainView().environmentObject(current).navigationBarHidden(true),isActive: self.$isLoginValid) {
+                NavigationLink(destination: MainView(rank: rank).environmentObject(current).navigationBarHidden(true),isActive: self.$isLoginValid) {
                 FullwidthButton(text: "Login")
                 .onTapGesture {
                     login_now(User: self.id, Password: self.password, completion: {
+                        
+                        get_all_user(completion: {
+                            rank_user()
+                        })
+                        
                         if current.Email != "NULL"{
                             isLoginValid = true
                         }
@@ -82,6 +89,18 @@ struct Login: View {
         }
     }
     
+    func rank_user()
+    {
+        for user in all_user{
+        
+            //if(user.User != current.User)
+            //{
+            rank.append(rankModel(userName: user.User, total_time: user.Total_time))
+            //}
+        }
+        rank.sort(by: {$0.total_time > $1.total_time})
+    }
+    
     func login_now(User:String, Password: String, completion: @escaping () -> Void)
     {
         AF.request("http://192.168.80.241:8081/login", method: .post,encoding: URLEncoding.httpBody, headers: ["User":User, "Password": Password]).responseJSON{
@@ -97,6 +116,20 @@ struct Login: View {
                 completion()
             }
             
+        }
+    }
+    
+    func get_all_user(completion: @escaping () -> Void)
+    {
+        AF.request("http://192.168.80.241:8081/user").response{
+            response in
+            guard let json = response.data else {return}
+            do{
+                all_user =  try JSONDecoder().decode([current_user].self, from: json)
+                completion()
+            }catch{
+                print("Failed to decode")
+            }
         }
     }
 }

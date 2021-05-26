@@ -43,6 +43,7 @@ struct RankingRowView: View {
 
 struct RankingRowView_Previews: PreviewProvider {
     static var previews: some View {
+        
         Group {
             RankingRowView(rank: "1", usrName: "Grace", hStr: "01", mStr: "25", sStr: "00", isMe: false)
             RankingRowView(rank: "2", usrName: "Sebastian", hStr: "00", mStr: "25", sStr: "00", isMe: true)
