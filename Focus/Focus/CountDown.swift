@@ -20,6 +20,7 @@ struct CountDown: View {
     @State private var curRound = FocusRound()
     @State private var animal = "jerry"
     @State private var b1Tap: Bool = false
+    @EnvironmentObject var rank: rankList
     @EnvironmentObject var current: current_user
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -151,6 +152,16 @@ struct CountDown: View {
                     curRound.finished()
                     // Update database here
                     current.Total_time += curRound.time
+                    for index in 0..<rank.ranks.count
+                    {
+                        if rank.ranks[index].userName == current.User
+                        {
+                            print(current.Total_time)
+                            rank.ranks[index].total_time = current.Total_time
+                            print(rank.ranks[index].total_time)
+                        }
+                    }
+                    rank.mySort()
                     if curRound.time >= 25
                     {
                         if curRound.animal == "jerry"

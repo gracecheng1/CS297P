@@ -9,21 +9,24 @@ import SwiftUI
 
 struct Rank: View {
     @EnvironmentObject var current: current_user
-    var rank = [rankModel]()
+    @EnvironmentObject var rank: rankList
     
     var body: some View {
         VStack {
             HStack {
-                Spacer()
-                Text("Rank")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                Spacer()
-                Text("Name")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
+                Group {
+                    Spacer()
+                    Text("Rank")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                    Spacer()
+                    Text("Name")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                    
+                }
                 Spacer()
                 Text("Total")
                     .font(.title)
@@ -34,9 +37,9 @@ struct Rank: View {
             .frame(width: UIScreen.main.bounds.width, height: 100, alignment: .center)
             .background(LinearGradient(gradient: Gradient(colors: [Color(0xFD716A), Color(0xFED363)]), startPoint: .bottomLeading, endPoint: .topTrailing))
             List {
-                ForEach(0..<rank.count) { cur in
+                ForEach(0..<rank.ranks.count) { cur in
                     if cur < 10 {
-                        RankingRowView(rank: String(cur + 1) , usrName: rank[cur].userName, hStr: String(rank[cur].total_time/60), mStr: String(rank[cur].total_time%60), sStr: "00", isMe: rank[cur].userName == current.User)
+                        RankingRowView(rank: String(cur + 1) , usrName: rank.ranks[cur].userName, hStr: String(rank.ranks[cur].total_time/60), mStr: String(rank.ranks[cur].total_time%60), sStr: "00", isMe: rank.ranks[cur].userName == current.User)
                     }
                     
                 }

@@ -17,7 +17,7 @@ struct Login: View {
     @State private var shouldShowLoginAlert: Bool = false
     @State var current = current_user()
     @State var all_user = [current_user]()
-    @State var rank = [rankModel]()
+    @State var rank: rankList = rankList()
     
     var body: some View {
         NavigationView {
@@ -47,7 +47,10 @@ struct Login: View {
                 }.padding(.horizontal, 35.0)
                 Spacer()
 
-                NavigationLink(destination: MainView(rank: rank).environmentObject(current).navigationBarHidden(true),isActive: self.$isLoginValid) {
+                NavigationLink(destination: MainView()
+                                .environmentObject(current)
+                                .environmentObject(rank)
+                                .navigationBarHidden(true),isActive: self.$isLoginValid) {
                 FullwidthButton(text: "Login")
                 .onTapGesture {
                     login_now(User: self.id, Password: self.password, completion: {
@@ -95,10 +98,10 @@ struct Login: View {
         
             //if(user.User != current.User)
             //{
-            rank.append(rankModel(userName: user.User, total_time: user.Total_time))
+            rank.add(newEntry: rankModel(name: user.User, time: user.Total_time))
             //}
         }
-        rank.sort(by: {$0.total_time > $1.total_time})
+        rank.mySort()
     }
     
     func login_now(User:String, Password: String, completion: @escaping () -> Void)
@@ -134,8 +137,8 @@ struct Login: View {
     }
 }
 
-struct Login_Previews: PreviewProvider {
-    static var previews: some View {
-        Login()
-    }
-}
+//struct Login_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Login()
+//    }
+//}

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var current: current_user
-    var rank = [rankModel]()
+    @EnvironmentObject var rank: rankList
     @State private var selectedTab = 0
 
     var body: some View {
@@ -18,24 +18,41 @@ struct MainView: View {
             set: { self.selectedTab = $0
                 print("Pressed tab: \($0)")
                 if $0 == 2 {
-                    print ("Scoreboard is selected.")
+                    for index in 0..<rank.ranks.count
+                    {
+                        if rank.ranks[index].userName == current.User
+                        {
+                            print(current.Total_time)
+                            rank.ranks[index].total_time = current.Total_time
+                            print(rank.ranks[index].total_time)
+                        }
+                    }
+                    rank.mySort()
                 }
             }
         )
         VStack{
             return TabView(selection: selection) {
-                CountDown().environmentObject(current).navigationBarHidden(true)
-                .tabItem { Label("Study", systemImage: "clock") }
-                .tag(0)
-                MyZoo().environmentObject(current).navigationBarHidden(true)
-                .tabItem { Label("Zoo", systemImage: "hare")}
-                .tag(1)
-                Rank(rank: rank).environmentObject(current).navigationBarHidden(true)
-                .tabItem { Label("Scoreboard", systemImage: "list.number") }
-                .tag(2)
+                CountDown()
+                    .environmentObject(current)
+                    .environmentObject(rank)
+                    .navigationBarHidden(true)
+                    .tabItem { Label("Study", systemImage: "clock") }
+                    .tag(0)
+                MyZoo()
+                    .environmentObject(current)
+                    .navigationBarHidden(true)
+                    .tabItem { Label("Zoo", systemImage: "hare")}
+                    .tag(1)
+                Rank()
+                    .environmentObject(current)
+                    .environmentObject(rank)
+                    .navigationBarHidden(true)
+                    .tabItem { Label("Scoreboard", systemImage: "list.number") }
+                    .tag(2)
                 History().environmentObject(current).navigationBarHidden(true)
-                .tabItem { Label("History", systemImage: "calendar.badge.clock") }
-                .tag(3)
+                    .tabItem { Label("History", systemImage: "calendar.badge.clock") }
+                    .tag(3)
         }
         .accentColor(Color(0xFD716A))
         .animation(.linear)
