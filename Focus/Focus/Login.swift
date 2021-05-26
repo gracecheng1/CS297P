@@ -54,17 +54,17 @@ struct Login: View {
                         
                         get_all_user(completion: {
                             rank_user()
+                            if current.Email != "NULL"{
+                                isLoginValid = true
+                            }
+                            if isLoginValid {
+                              self.isLoginValid = true //trigger NavigationLink
+                            }
+                            else {
+                              self.shouldShowLoginAlert = true //trigger Alert
+                            }
                         })
                         
-                        if current.Email != "NULL"{
-                            isLoginValid = true
-                        }
-                        if isLoginValid {
-                          self.isLoginValid = true //trigger NavigationLink
-                        }
-                        else {
-                          self.shouldShowLoginAlert = true //trigger Alert
-                        }
                     })
                 }
            }.navigationBarHidden(true)
