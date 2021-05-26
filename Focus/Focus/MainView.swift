@@ -10,18 +10,32 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var current: current_user
     var rank = [rankModel]()
+    @State private var selectedTab = 0
 
     var body: some View {
+        let selection = Binding<Int> (
+            get: { self.selectedTab },
+            set: { self.selectedTab = $0
+                print("Pressed tab: \($0)")
+                if $0 == 2 {
+                    print ("Scoreboard is selected.")
+                }
+            }
+        )
         VStack{
-        TabView {
-            CountDown().environmentObject(current).navigationBarHidden(true)
+            return TabView(selection: selection) {
+                CountDown().environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("Study", systemImage: "clock") }
-            MyZoo().environmentObject(current).navigationBarHidden(true)
+                .tag(0)
+                MyZoo().environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("Zoo", systemImage: "hare")}
-            Rank(rank: rank).environmentObject(current).navigationBarHidden(true)
+                .tag(1)
+                Rank(rank: rank).environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("Scoreboard", systemImage: "list.number") }
-            History().environmentObject(current).navigationBarHidden(true)
+                .tag(2)
+                History().environmentObject(current).navigationBarHidden(true)
                 .tabItem { Label("History", systemImage: "calendar.badge.clock") }
+                .tag(3)
         }
         .accentColor(Color(0xFD716A))
         .animation(.linear)

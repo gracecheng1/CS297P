@@ -4,7 +4,6 @@
 //
 //  Created by Frank chen on 5/25/21.
 //
-
 import Foundation
 
 struct rankModel {

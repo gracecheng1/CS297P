@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		01453EA82654BFBC00FD65A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 01453EA72654BFBC00FD65A8 /* Alamofire */; };
 		01453EAD2657996B00FD65A8 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 01453EAC2657996B00FD65A8 /* SwiftyJSON */; };
-		01453EAF265E075500FD65A8 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01453EAE265E075500FD65A8 /* RankModel.swift */; };
 		480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D9818264A072C00A6EBA4 /* ContentView.swift */; };
 		4873A0D226539A24006A404E /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D126539A24006A404E /* BottomTab.swift */; };
 		4873A0DA26546637006A404E /* MyZoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4873A0D926546637006A404E /* MyZoo.swift */; };
@@ -33,6 +32,7 @@
 		83B594A5262E4DDC0046A830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B594A4262E4DDC0046A830 /* Preview Assets.xcassets */; };
 		83B594B0262E4DDD0046A830 /* FocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B594AF262E4DDD0046A830 /* FocusTests.swift */; };
 		83B594BB262E4DDD0046A830 /* FocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B594BA262E4DDD0046A830 /* FocusUITests.swift */; };
+		83E103ED265E115F00088758 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E103EC265E115F00088758 /* RankModel.swift */; };
 		83E1959626570B7500C88A67 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E1959526570B7500C88A67 /* MainView.swift */; };
 		83E1959926570CD600C88A67 /* AlamofireNetworkActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 83E1959826570CD600C88A67 /* AlamofireNetworkActivityIndicator */; };
 		83E1959B26570DEF00C88A67 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E1959A26570DEF00C88A67 /* APIFunctions.swift */; };
@@ -56,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01453EAE265E075500FD65A8 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RankModel.swift; path = ../../../../RankModel.swift; sourceTree = "<group>"; };
 		480D9818264A072C00A6EBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4873A0D126539A24006A404E /* BottomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
 		4873A0D926546637006A404E /* MyZoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyZoo.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		83B594B6262E4DDD0046A830 /* FocusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B594BA262E4DDD0046A830 /* FocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUITests.swift; sourceTree = "<group>"; };
 		83B594BC262E4DDD0046A830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E103EC265E115F00088758 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		83E1959526570B7500C88A67 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		83E1959A26570DEF00C88A67 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,7 +165,7 @@
 				835E5F072654B98A007F88CD /* MyZooRowView.swift */,
 				83B594A1262E4DDC0046A830 /* Assets.xcassets */,
 				4873A0DE26546657006A404E /* Rank.swift */,
-				01453EAE265E075500FD65A8 /* RankModel.swift */,
+				83E103EC265E115F00088758 /* RankModel.swift */,
 				835E5F03265487E9007F88CD /* RankingRowView.swift */,
 				835E5F0526548D49007F88CD /* StarView.swift */,
 				835E5EFF26538E70007F88CD /* ChooseAnimalView.swift */,
@@ -346,7 +346,7 @@
 				4873A0E4265466D0006A404E /* History.swift in Sources */,
 				48D17CCB264A02A6009C97B8 /* Signup_Done.swift in Sources */,
 				48D17CA626460DB6009C97B8 /* Signup.swift in Sources */,
-				01453EAF265E075500FD65A8 /* RankModel.swift in Sources */,
+				83E103ED265E115F00088758 /* RankModel.swift in Sources */,
 				4873A0D226539A24006A404E /* BottomTab.swift in Sources */,
 				480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */,
 				4873A0DA26546637006A404E /* MyZoo.swift in Sources */,
