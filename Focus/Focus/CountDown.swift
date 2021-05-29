@@ -62,15 +62,18 @@ struct CountDown: View {
                         Group {
                             Spacer()
                             TimerInputField(placeholder: "00", text: $hourStr)
+                                .font(.system(size: 25))
                             Spacer()
                             Text(":")
                         }
                         Spacer()
                         TimerInputField(placeholder: "25", text: $minStr)
+                            .font(.system(size: 25))
                         Spacer()
                         Text(":")
                         Spacer()
                         TimerInputField(placeholder: "00", text: $secStr)
+                            .font(.system(size: 25))
                         Spacer()
                     }
                 }
