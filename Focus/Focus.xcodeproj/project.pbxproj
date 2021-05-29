@@ -33,6 +33,7 @@
 		83B594B0262E4DDD0046A830 /* FocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B594AF262E4DDD0046A830 /* FocusTests.swift */; };
 		83B594BB262E4DDD0046A830 /* FocusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B594BA262E4DDD0046A830 /* FocusUITests.swift */; };
 		83E103ED265E115F00088758 /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E103EC265E115F00088758 /* RankModel.swift */; };
+		83E103EF2661FE0A00088758 /* FinishPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E103EE2661FE0A00088758 /* FinishPopUp.swift */; };
 		83E1959626570B7500C88A67 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E1959526570B7500C88A67 /* MainView.swift */; };
 		83E1959926570CD600C88A67 /* AlamofireNetworkActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 83E1959826570CD600C88A67 /* AlamofireNetworkActivityIndicator */; };
 		83E1959B26570DEF00C88A67 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E1959A26570DEF00C88A67 /* APIFunctions.swift */; };
@@ -86,6 +87,7 @@
 		83B594BA262E4DDD0046A830 /* FocusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusUITests.swift; sourceTree = "<group>"; };
 		83B594BC262E4DDD0046A830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83E103EC265E115F00088758 /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
+		83E103EE2661FE0A00088758 /* FinishPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPopUp.swift; sourceTree = "<group>"; };
 		83E1959526570B7500C88A67 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		83E1959A26570DEF00C88A67 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				83B5949D262E4DDA0046A830 /* FocusApp.swift */,
 				48D17CCA264A02A6009C97B8 /* Signup_Done.swift */,
 				8372F8332645E154009F2351 /* CountDown.swift */,
+				83E103EE2661FE0A00088758 /* FinishPopUp.swift */,
 				4873A0D126539A24006A404E /* BottomTab.swift */,
 				835E5EFD26538539007F88CD /* TimerInputField.swift */,
 				839BC368264A049C0080C7F9 /* Classes */,
@@ -349,6 +352,7 @@
 				83E103ED265E115F00088758 /* RankModel.swift in Sources */,
 				4873A0D226539A24006A404E /* BottomTab.swift in Sources */,
 				480D9819264A072C00A6EBA4 /* ContentView.swift in Sources */,
+				83E103EF2661FE0A00088758 /* FinishPopUp.swift in Sources */,
 				4873A0DA26546637006A404E /* MyZoo.swift in Sources */,
 				83B5949E262E4DDA0046A830 /* FocusApp.swift in Sources */,
 				835E5EFE26538539007F88CD /* TimerInputField.swift in Sources */,

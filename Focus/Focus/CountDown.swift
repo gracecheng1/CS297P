@@ -16,6 +16,7 @@ struct CountDown: View {
     @State private var started: Bool = false
     @State private var needReset: Bool = false
     @State private var showPopUp: Bool = false
+    @State private var showFinish: Bool = false
     @State private var showChooseAnimal: Bool = false
     @State private var curRound = FocusRound()
     @State private var animal = "jerry"
@@ -149,6 +150,7 @@ struct CountDown: View {
                     self.min = 0
                     self.hour = 0
                     started = false
+                    showFinish = true
                     curRound.finished()
                     // Update database here
                     current.Total_time += curRound.time
@@ -204,6 +206,7 @@ struct CountDown: View {
             }
             ChooseAnimalView(show: $showChooseAnimal, animal: $animal)
             PopUpWindow(title: "Sure to Exit?", message: "You will lose your progress if you exit now!", button1Text: "Keep up!", button2Text: "Exit", show: $showPopUp, button1Tapped: $b1Tap, button2Tapped: $needReset, b2Action: reset)
+            FinishPopUp(show: $showFinish)
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didEnterBackgroundNotification), perform: { _ in
             started = false
