@@ -157,14 +157,22 @@ struct CountDown: View {
                     curRound.finished()
                     // Update database here
                     current.Total_time += curRound.time
+                    let date = Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let result = formatter.string(from: date)
+                    if current.History[result] == nil {
+                        current.History[result] = curRound.time
+                    }
+                    else {
+                        current.History[result]! += curRound.time
+                    }
+                    
                     for index in 0..<rank.ranks.count
                     {
                         if rank.ranks[index].userName == current.User
                         {
-                            print(current.Total_time)
-                            rank.ranks[index].total_time = current.Total_time
-                            print(rank.ranks[index].total_time)
-                        }
+                            rank.ranks[index].total_time = current.Total_time                        }
                     }
                     rank.mySort()
                     if curRound.time >= 25
@@ -195,7 +203,9 @@ struct CountDown: View {
                   
                         let jsonData = try JSONSerialization.data(withJSONObject: updated_dict, options: [])
                         let jsonString = String(data: jsonData, encoding: .utf8)
-                        APIFunctions.functions.updateUser(total_time: String(current.Total_time), id: current._id, zoo: jsonString!)
+                        let history_data = try JSONSerialization.data(withJSONObject: current.History, options: [])
+                        let history_string = String(data: history_data, encoding: .utf8)
+                        APIFunctions.functions.updateUser(total_time: String(current.Total_time), id: current._id, zoo: jsonString!, history: history_string!)
                     }
                     catch{
                         print(error.localizedDescription)

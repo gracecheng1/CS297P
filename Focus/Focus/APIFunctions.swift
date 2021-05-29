@@ -9,6 +9,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+struct history_data: Decodable{
+    var date: String
+    var time: Int
+}
+
 struct animals: Decodable{
     var jerry : Int
     var kitty : Int
@@ -24,10 +29,11 @@ class current_user: Decodable, ObservableObject{
     var Password: String = ""
     var Email: String = ""
     var Total_time: Int = 0
+    var History: Dictionary<String, Int> = [:]
     @Published var Zoo: animals = animals(jerry: 0, kitty: 0, panda: 0, pikachu:0, snoopy:0, tom:0)
     
     enum  CodingKeys: CodingKey {
-        case User, _id, Password, Email, Total_time, Zoo
+        case User, _id, Password, Email, Total_time, History, Zoo
     }
     
     init() { }
@@ -40,6 +46,7 @@ class current_user: Decodable, ObservableObject{
         Password = try container.decode(String.self, forKey: .Password)
         Email = try container.decode(String.self, forKey: .Email)
         Total_time = try container.decode(Int.self, forKey: .Total_time)
+        History = try container.decode(Dictionary<String, Int>.self, forKey: .History)
         Zoo = try container.decode(animals.self, forKey: .Zoo)
     }
     
@@ -66,9 +73,9 @@ class APIFunctions{
         
     }
     
-    func updateUser(total_time: String, id:String, zoo:String)
+    func updateUser(total_time: String, id:String, zoo:String, history: String)
     {
-        AF.request("http://192.168.80.241:8081/update", method: .post,encoding: URLEncoding.httpBody, headers: ["total_time": total_time, "id":id, "zoo": zoo]).responseJSON{
+        AF.request("http://192.168.80.241:8081/update", method: .post,encoding: URLEncoding.httpBody, headers: ["total_time": total_time, "id":id, "zoo": zoo, "history": history]).responseJSON{
             response in
             print(response)
         }

@@ -55,18 +55,18 @@ struct Login: View {
                 .onTapGesture {
                     login_now(User: self.id, Password: self.password, completion: {
                         
-                        get_all_user(completion: {
-                            rank_user()
-                            if current.Email != "NULL"{
-                                isLoginValid = true
-                            }
-                            if isLoginValid {
-                              self.isLoginValid = true //trigger NavigationLink
-                            }
-                            else {
-                              self.shouldShowLoginAlert = true //trigger Alert
-                            }
-                        })
+                        if current.Email != "" {
+                            isLoginValid = true
+                        }
+                        if isLoginValid {
+                            self.isLoginValid = true //trigger NavigationLink
+                            get_all_user(completion: {
+                                rank_user()
+                            })
+                        }
+                        else {
+                            self.shouldShowLoginAlert = true //trigger Alert
+                        }
                         
                     })
                 }
@@ -111,6 +111,7 @@ struct Login: View {
             switch response.result
             {
             case.success(_):
+                print(response)
                 guard let json = response.data else {return}
                 current = try! JSONDecoder().decode(current_user.self, from: json)
                 completion()

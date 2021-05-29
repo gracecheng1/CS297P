@@ -10,6 +10,11 @@ import SwiftUI
 struct History: View {
     @State private var date = Date()
     @State private var focusTime = "No study at this date!"
+    let formatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
     @EnvironmentObject var current: current_user
     
     var body: some View {
@@ -27,7 +32,12 @@ struct History: View {
                 .datePickerStyle(GraphicalDatePickerStyle())
                 .accentColor(Color(0xFD9767))
             Spacer()
-            Text(focusTime)
+            if current.History[formatter.string(from: date)] != nil && current.History[formatter.string(from: date)] != 0 {
+                Text("You have studied " + String(current.History[formatter.string(from: date)]!) + " minutes on this day")
+            }
+            else {
+                Text("No study time today")
+            }
             Spacer()
         }
         .padding(.top, -15)
