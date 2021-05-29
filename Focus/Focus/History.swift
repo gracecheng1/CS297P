@@ -9,7 +9,7 @@ import SwiftUI
 
 struct History: View {
     @State private var date = Date()
-    @State private var focusTime = "No study at this date!"
+    @State private var focusTime = "You haven't study on this date!"
     let formatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd"
@@ -36,7 +36,7 @@ struct History: View {
                 Text("You have studied " + String(current.History[formatter.string(from: date)]!) + " minutes on this day")
             }
             else {
-                Text("No study time today")
+                Text(focusTime)
             }
             Spacer()
         }
