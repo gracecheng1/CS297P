@@ -71,7 +71,7 @@ struct Signup: View {
             .cornerRadius(15)
 
         }.padding(.horizontal, 35.0)
-
+        Spacer()
 //        NavigationLink(destination: Signup_Verify()) {
 //            FullwidthButton(text: "Next Step")
 //       }
